@@ -1,16 +1,25 @@
 
-def AND(x1, x2):
+import numpy as np
+
+# No bias
+def ANDWithNoBias(x1, x2):
     # w1 and w2 are weight
     w1, w2, theta = 0.5, 0.5, 0.7
     tmp = x1 * w1 + x2 * w2
     if tmp <= theta:
-        print(0)
-        return
+        return 0
     elif tmp > theta:
-        print(1)
-        return
+        return 1
 
-AND(0, 0)
-AND(0, 1)
-AND(1, 0)
-AND(1, 1)
+
+# With bias
+def ANDWithBias(x1, x2):
+    # w1 and w2 are weight
+    x = np.array([x1, x2])
+    w = np.array([0.5, 0.5])
+    b = -0.7
+    tmp = np.sum(x*w) + b
+    if tmp <= 0:
+        return print(0)
+    else:
+        return print(1)
